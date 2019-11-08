@@ -1,0 +1,121 @@
+﻿<Page
+    x:Class="singmysong.Pages.RegisterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:singmysong.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   NavigationCacheMode="Enabled"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer Padding="320 0 0 0">
+        <ScrollViewer.Content>
+            <StackPanel>
+
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="800"/>
+                        <ColumnDefinition Width="305"/>
+
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Ellipse Height="130" Width="130" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/img/download.png" x:Name="Avatar"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock x:Name="AvatarUrl" Visibility="Collapsed"/>
+                        <Button  Click="CapturePhoto" CornerRadius="5"  Content="Select Avatar" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="291.714"/>
+                        <ColumnDefinition Width="13.429"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" ><Run Text="First Name"/></TextBlock>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="FirstName" Grid.ColumnSpan="2" Margin="10,10,9,10"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" Margin="10,10,10,10"><Run Text="Last Name"/></TextBlock>
+                    <TextBox Grid.Row="1" Grid.Column="4" x:Name="LastName" Margin="10,10,-10,10"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="10,10,10,10"><Run Text="Email"/></TextBlock>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="Email" Grid.ColumnSpan="2" Margin="10,10,9,10"/>
+                    <TextBlock Grid.Row="2" Grid.Column="3" Margin="10,10,10,10" ><Run Text="Password"/></TextBlock>
+                    <PasswordBox Grid.Row="2" Grid.Column="4"  x:Name="Password" Margin="10,10,-10,10"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="10,10,10,10"><Run Text="Phone"/></TextBlock>
+                    <TextBox Grid.Row="3" Width="200" Grid.Column="1" x:Name="Phone" Margin="13,10,79,10"/>
+                    <TextBlock Grid.Row="3" Grid.Column="3" Margin="10,14,10,18" ><Run Text="Address"/></TextBlock>
+                    <TextBox Grid.Row="3" Grid.Column="4" x:Name="Address" Margin="10,14,-10,6"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Margin="10,10,10,10" ><Run Text="Introduction"/></TextBlock>
+                    <TextBox Grid.Row="5" Grid.Column="1" x:Name="Introduction" Grid.ColumnSpan="2" Margin="10,10,9,10"/>
+                    <TextBlock Grid.Row="5" Grid.Column="3" Margin="18,17,2,15" ><Run Text="Gender"/></TextBlock>
+                    <StackPanel Grid.Row="5" Grid.Column="4" Orientation="Horizontal" Margin="10,11,10,6">
+                        <RadioButton Content="Male" Tag="Male" IsChecked="True" Checked="RadionButton_OnChecked"/>
+                        <RadioButton Content="Female" Tag="Female" Checked="RadionButton_OnChecked"/>
+                        <RadioButton Content="Other" Tag="Other" Checked="RadionButton_OnChecked"/>
+                    </StackPanel>
+                    <TextBlock Grid.Row="6" Grid.Column="0" Margin="10,11,10,7" ><Run Text="Birthday"/></TextBlock>
+                    <DatePicker Margin="10,13,0,0" Grid.Row="6" Grid.Column="1" x:Name="Birthday" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+                    <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="4" Margin="198,5,222,15">
+                        <Button CornerRadius="4" Click="ButtonBase_OnClick" Content="Submit" BorderBrush="#99FFFFFF">
+                            <Button.Background>
+                                <SolidColorBrush Color="{ThemeResource SystemAccentColorLight1}"/>
+                            </Button.Background>
+                        </Button>
+                        <Button CornerRadius="4" Margin="10" Content="Reset">
+                            <Button.Background>
+                                <SolidColorBrush Color="{ThemeResource SystemListLowColor}"/>
+                            </Button.Background>
+                        </Button>
+                        <HyperlinkButton Click="ButtonLogin_OnClick" Content="or login"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer.Content>
+    </ScrollViewer>
+</Page>
